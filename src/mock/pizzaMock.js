@@ -1,0 +1,80 @@
+export const pizzasMock = [
+  {
+    imageURI: "src/assets/pizza1.jpg",
+    pizzaName: "4 м'яса",
+    pizzaParts: [
+      "Соус томатний",
+      "цибуля маринована",
+      "салямі баликова",
+      "ковбаски баварські",
+      "курка маринована",
+      "бекон",
+      "сир моцарела",
+      "часникова олія",
+    ],
+    pizzaPrice: 50,
+  },
+  {
+    imageURI: "src/assets/pizza2.jpg",
+    pizzaName: "Баварська",
+    pizzaParts: [
+      "Соус томатний",
+      "ковбаски баварські",
+      "печериці",
+      "сир моцарела",
+      "перець болгарський",
+      "часникова олія",
+    ],
+    pizzaPrice: 55,
+  },
+  {
+    imageURI: "src/assets/pizza3.jpg",
+    pizzaName: "Гавайська",
+    pizzaParts: [
+      "Соус вершковий",
+      "цибуля маринована",
+      "курка маринована",
+      "ананас",
+      "сир моцарела",
+    ],
+    pizzaPrice: 50,
+  },
+  {
+    imageURI: "src/assets/pizza4.jpg",
+    pizzaName: "Маргарита",
+    pizzaParts: ["Соус томатний", "сир моцарела", "помідор"],
+    pizzaPrice: 50,
+  },
+  {
+    imageURI: "src/assets/pizza5.jpg",
+    pizzaName: "Байрактар",
+    pizzaParts: [
+      "Соус вершковий",
+      "цибуля маринована",
+      "сир моцарела",
+      "свинина маринована",
+      "сир Дор Блю",
+      "сир Чедер",
+      "соус журавлинний",
+      "льон",
+    ],
+    pizzaPrice: 100,
+  },
+  {
+    imageURI: "src/assets/pizza6.jpg",
+    pizzaName: "Himars",
+    pizzaParts: [
+      "Свинина маринована",
+      "сир моцарела",
+      "цибуля маринована",
+      "перець болгарський",
+      "салат Айсберг",
+      "кунжут",
+      "соус вершковий",
+      "соус солодкий чилі",
+    ],
+    pizzaPrice: 100,
+  },
+];
+
+export default pizzasMock;
