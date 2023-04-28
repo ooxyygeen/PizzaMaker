@@ -1,5 +1,6 @@
 import Card from "../../components/Card/Card";
 import cardData from "../../mock/pizzaMock.js";
+import "./MainPage.css";
 
 function Main() {
   return (
