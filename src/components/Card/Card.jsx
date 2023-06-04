@@ -2,6 +2,7 @@ import "./Card.css";
 import { PropTypes } from "prop-types";
 import { useState } from "react";
 import PopUp from "../PopUp/PopUp";
+import { Portal } from "react-portal";
 
 function Card(props) {
   const { imageURI, pizzaName, pizzaParts, pizzaPrice } = props;
@@ -31,7 +32,17 @@ function Card(props) {
           </button>
         </div>
       </div>
-      {showPopup && <PopUp onClose={handleClosePopup} />}
+      {showPopup && (
+        <Portal>
+          <PopUp
+            onClose={handleClosePopup}
+            imageURI={imageURI}
+            pizzaName={pizzaName}
+            pizzaParts={pizzaParts}
+            pizzaPrice={pizzaPrice}
+          />
+        </Portal>
+      )}
     </div>
   );
 }

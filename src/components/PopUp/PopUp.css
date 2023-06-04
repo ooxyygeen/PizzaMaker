@@ -1,14 +1,131 @@
 .PopUp-container {
     position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: RGBA(0,0,0,0.14);
+    background-color: RGBA(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .PopUp {
     position: absolute;
-    width: 500px;
-    height: 900px;
+    width: 400px;
+    height: 96vh;
     background-color: var(--white);
     border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start ;
+    
+    flex-direction: column;
+}
+
+.exit-button  {
+    position: absolute;
+    background-color: RGBA(0,0,0,0);
+    right: 0;
+    border: none;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper img{
+    height: 360px;
+    aspect-ratio: 1/1;
+}
+
+.info-wrapper {
+    overflow-y: auto;
+}
+
+.popUp-info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+}
+
+.popUp-info p {
+    font-size: 22px;
+    margin: 16px 0;
+}
+
+.popUp-price {
+    font-size: 20px;
+    color: var(--black);
+    margin: 16px 0;
+}
+
+.popUp-ingridients {
+    color: var(--dark-gray);
+    font-size: 14px;
+}
+
+.popUp-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 24px 24px;
+}
+
+.upper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 12px;
+    font-size: 18px;
+}
+
+.upper input {
+    border-radius: 4px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.upper input:valid {
+    border-color: var(--black);
+    background-color: var(--white);
+}
+
+.upper input:invalid {
+    border-color: var(--red);
+    background-color: var(--gray);
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter span {
+    padding: 0 8px
+}
+
+.counter button {
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.popUp-footer button :disabled, .popUp-footer button[disabled] {
+    cursor: default;
+    background-color: var(--dark-gray);
 }
