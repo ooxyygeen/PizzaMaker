@@ -18,11 +18,13 @@
 .search-row {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    gap: 40px;
+    align-items: center;
 }
 
 .search-row input {
     border-radius: 8px;
+    height: 36px;
 }
 
 .search-row input[type="tel"]::placeholder {
@@ -36,12 +38,10 @@
 }
 
 .order-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     list-style-type: none;
-    padding: 0;
+    padding: 0 24px;
   }
   
   .order-list li {
@@ -55,4 +55,18 @@
   
   .order-list li > ul > li {
     margin-bottom: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .cart-container h2 {
+      font-size: 20px;
+    }
+
+    .cart-container h4 {
+      font-size: 14px;
+    }
+
+    .cart-container ul {
+      font-size: 14px;
+    }
   }

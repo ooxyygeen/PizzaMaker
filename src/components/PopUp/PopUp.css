@@ -129,3 +129,9 @@
     cursor: default;
     background-color: var(--dark-gray);
 }
+
+@media (max-width: 768px) {
+    .PopUp {
+        width: 340px;
+    }
+}

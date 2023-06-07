@@ -1,5 +1,5 @@
 import "./CartPage.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { sizes, borders, modifications } from "../../mock/optionsMock.js";
 
 function Cart() {

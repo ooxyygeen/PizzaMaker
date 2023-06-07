@@ -5,9 +5,10 @@ function Header() {
   return (
     <header>
       <div className="header-container">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img src="src\assets\logo.png" alt="logo" />
-        </a>
+        </Link>
+
         <h1>Твоя піца на Металістів 3</h1>
         <Link to="/cart" className="cart">
           <svg

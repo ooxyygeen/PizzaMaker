@@ -56,3 +56,14 @@
     background-color: var(--red);
     color: var(--white);
 }
+
+@media (max-width: 768px) {
+    .card-container {
+        width: calc(100% - 48px);
+        gap: 20px
+    }
+
+    .pizza-price {
+        font-size: 16px;
+    }
+}
