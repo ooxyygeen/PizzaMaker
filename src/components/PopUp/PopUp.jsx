@@ -62,18 +62,46 @@ function PopUp(props) {
     return validatePhoneNumber() && phoneNumber != undefined;
   };
 
+  async function postData(url, body) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed with status: " + response.status);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleBuyClick = () => {
     const orderDetails = {
+      id: Date.now().toString(),
       phoneNumber,
       pizzaName,
       pizzaCount,
       selectedSizeOption,
       selectedBorderOption,
       totalPrice,
-      modificationsMap: JSON.stringify([...modificationsMap]),
+      modificationsMap: Array.from(modificationsMap.entries()).reduce(
+        (acc, [key, value]) => {
+          acc[key] = value;
+          return acc;
+        },
+        {}
+      ),
       status: "Прийнято",
     };
-    localStorage.setItem(Date.now().toString(), JSON.stringify(orderDetails));
+    //localStorage.setItem(Date.now().toString(), JSON.stringify(orderDetails));
+    postData("http://localhost:8080/orders/placeOrder", orderDetails);
   };
 
   const handleModificationChange = (aID) => {

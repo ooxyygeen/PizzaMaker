@@ -7,7 +7,8 @@ function Cart() {
   const [orders, setOrders] = useState([]);
 
   const getOrdersByPhoneNumber = () => {
-    const storedOrders = [];
+    {
+      /*const storedOrders = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const order = JSON.parse(localStorage.getItem(key));
@@ -15,7 +16,9 @@ function Cart() {
         storedOrders.push({ id: key, ...order });
       }
     }
-    setOrders(storedOrders);
+  setOrders(storedOrders);*/
+    }
+    fetchData(phoneNumber);
   };
 
   const getTextFromId = (id, array) => {
@@ -28,16 +31,22 @@ function Cart() {
       return "";
     }
 
-    const modificationsArray = JSON.parse(modificationsString);
-    const formattedModifications = modificationsArray
-      .map(([modId, count]) => {
-        const modification = modifications.find((mod) => mod.id === modId);
-        const modificationName = modification ? modification.optionText : modId;
-        return `${modificationName} х${count}`;
-      })
-      .join(", ");
+    return Object.entries(modificationsString).reduce(
+      (acc, [key, value]) =>
+        acc +
+        `${modifications.find((m) => m.id === key).optionText}: ${value}; `,
+      ""
+    );
+  }
 
-    return formattedModifications;
+  async function fetchData(phoneNumber) {
+    fetch("http://localhost:8080/orders/" + phoneNumber, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => setOrders(data))
+      .catch(() => setOrders([]));
   }
 
   return (
@@ -77,7 +86,9 @@ function Cart() {
                 <li>
                   Бортик: {getTextFromId(order.selectedBorderOption, borders)}
                 </li>
-                <li>Модифікації: {formatModifications(order.modifications)}</li>
+                <li>
+                  Модифікації: {formatModifications(order.modificationsMap)}
+                </li>
                 <li>Статус: {order.status}</li>
               </ul>
             </li>
